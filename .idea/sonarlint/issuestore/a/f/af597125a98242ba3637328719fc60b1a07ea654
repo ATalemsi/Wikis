@@ -1,0 +1,5 @@
+
+fphp:S103"KSplit this 162 characters long line (which is greater than 120 authorized).(£Ê8»ŸóÎ1
+c	php:S1192"GDefine a constant instead of duplicating this literal ":Email" 3 times.(ªËš8¼ŸóÎ1
+f	php:S1126"EReplace this "if-then-else" statement by a single "return" statement.(ÌÍîºşÿÿÿÿ8¼ŸóÎ1
+a	php:S11262"EReplace this "if-then-else" statement by a single "return" statement.(¡îÆ¤8¼ŸóÎ1

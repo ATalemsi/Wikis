@@ -1,0 +1,6 @@
+
+kphp:S1035"KSplit this 135 characters long line (which is greater than 120 authorized).(£œ¸½şÿÿÿÿ8ŒãúóÎ1
+u	php:S3776"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(æü¯ûÿÿÿÿ8ŒãúóÎ1
+u	php:S3776Z"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÉöÃûÿÿÿÿ8ŒãúóÎ1
+m	php:S1192>"LDefine a constant instead of duplicating this literal "users/login" 5 times.(¤‚¸ÿûÿÿÿÿ8ŒãúóÎ1
+g	php:S1126³"EReplace this "if-then-else" statement by a single "return" statement.(¥¡Ééıÿÿÿÿ8ŒãúóÎ1

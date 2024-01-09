@@ -11,53 +11,46 @@
         // Process form
   
         // Sanitize POST data
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 
         // Init data
         $data =[
-          'name' => trim($_POST['name']),
-          'email' => trim($_POST['email']),
+          'firstname' => trim($_POST['firstname']),
+          'lastname' => trim($_POST['lastname']),
+          'Email' => trim($_POST['email']),
           'password' => trim($_POST['password']),
-          'confirm_password' => trim($_POST['confirm_password']),
-          'name_err' => '',
+          'UserRole' => 'autheur',
+          'firstname_err' => '',
+          'lastname_err' => '',
           'email_err' => '',
           'password_err' => '',
-          'confirm_password_err' => ''
         ];
 
         // Validate Email
-        if(empty($data['email'])){
+        if(empty($data['Email'])){
           $data['email_err'] = 'Pleae enter email';
         } else {
           // Check email
-          if($this->userModel->findUserByEmail($data['email'])){
+          if($this->userModel->findUserByEmail($data['Email'])){
             $data['email_err'] = 'Email is already taken';
           }
         }
 
         // Validate Name
-        if(empty($data['name'])){
-          $data['name_err'] = 'Pleae enter name';
-        }
-
+          if(empty($data['firstname'])){
+              $data['firstname_err'] ='Please write your firstname';
+          }
+          if(empty($data['lastname'])){
+              $data['lastname_err'] ='Please write your lastname';
+          }
         // Validate Password
         if(empty($data['password'])){
           $data['password_err'] = 'Pleae enter password';
         } elseif(strlen($data['password']) < 6){
           $data['password_err'] = 'Password must be at least 6 characters';
         }
-
-        // Validate Confirm Password
-        if(empty($data['confirm_password'])){
-          $data['confirm_password_err'] = 'Pleae confirm password';
-        } else {
-          if($data['password'] != $data['confirm_password']){
-            $data['confirm_password_err'] = 'Passwords do not match';
-          }
-        }
-
         // Make sure errors are empty
-        if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+        if(empty($data['email_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && empty($data['password_err'])){
           // Validated
           
           // Hash Password
@@ -79,14 +72,14 @@
       } else {
         // Init data
         $data =[
-          'name' => '',
-          'email' => '',
+          'firstname' => '',
+          'lastname' => '',
+          'Email' => '',
           'password' => '',
-          'confirm_password' => '',
-          'name_err' => '',
+          'firstname_err' => '',
+          'lastname_err' => '',
           'email_err' => '',
-          'password_err' => '',
-          'confirm_password_err' => ''
+          'password_err' => ''
         ];
 
         // Load view
@@ -99,14 +92,14 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Process form
         // Sanitize POST data
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
         
         // Init data
         $data =[
-          'email' => trim($_POST['email']),
+          'Email' => trim($_POST['email']),
           'password' => trim($_POST['password']),
           'email_err' => '',
-          'password_err' => '',      
+          'password_err' => '',
         ];
 
         // Validate Email
@@ -120,7 +113,7 @@
         }
 
         // Check for user/email
-        if($this->userModel->findUserByEmail($data['email'])){
+        if($this->userModel->findUserByEmail($data['Email'])){
           // User found
         } else {
           // User not found
@@ -149,11 +142,11 @@
 
       } else {
         // Init data
-        $data =[    
-          'email' => '',
+        $data =[
+          'Email' => '',
           'password' => '',
           'email_err' => '',
-          'password_err' => '',        
+          'password_err' => '',
         ];
 
         // Load view
@@ -162,16 +155,22 @@
     }
 
     public function createUserSession($user){
-      $_SESSION['user_id'] = $user->id;
-      $_SESSION['user_email'] = $user->email;
-      $_SESSION['user_name'] = $user->name;
-      redirect('pages/index');
+      $_SESSION['user_id'] = $user->ID_User;
+      $_SESSION['user_email'] = $user->Email;
+      $_SESSION['firstname'] = $user->Firstname;
+      $_SESSION['UserRole'] = $user->UserRole;
+      if($_SESSION['UserRole']== 'admin' ){
+          redirect('wikis/dashboard');
+      }else{
+          redirect('wikis/index');
+      }
     }
 
     public function logout(){
       unset($_SESSION['user_id']);
       unset($_SESSION['user_email']);
-      unset($_SESSION['user_name']);
+      unset($_SESSION['firstname']);
+      unset($_SESSION['UserRole']);
       session_destroy();
       redirect('users/login');
     }

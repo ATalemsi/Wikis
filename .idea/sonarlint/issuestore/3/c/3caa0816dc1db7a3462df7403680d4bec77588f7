@@ -1,0 +1,9 @@
+
+kphp:S103
+"KSplit this 239 characters long line (which is greater than 120 authorized).(¡­ÁÑûÿÿÿÿ8ÛñÏ1
+fphp:S103"KSplit this 122 characters long line (which is greater than 120 authorized).(ÜÃü›8ÛñÏ1
+fphp:S103"KSplit this 179 characters long line (which is greater than 120 authorized).(•áß8’ÛñÏ1
+kphp:S103"KSplit this 134 characters long line (which is greater than 120 authorized).(ò³ıïıÿÿÿÿ8’ÛñÏ1
+G	php:S2003"&Replace "require" with "require_once".(óáöéùÿÿÿÿ8ƒ±øÎ1
+B	php:S2003"&Replace "require" with "require_once".(ª¢ˆ»8ƒ±øÎ1
+G	php:S2003"&Replace "require" with "require_once".(Å©ŞĞúÿÿÿÿ8’ÛñÏ1
