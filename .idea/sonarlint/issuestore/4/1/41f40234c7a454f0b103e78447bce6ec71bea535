@@ -1,0 +1,7 @@
+
+\	php:S1131J"@Remove the useless trailing whitespaces at the end of this line.(–Ýçá8ƒ¡ ÕÏ1
+pphp:S100"PRename function "get_wikis" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(Ú…Š¬üÿÿÿÿ8„¡ ÕÏ1
+ophp:S100I"ORename function "add_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ºðýšÿÿÿÿÿ8„¡ ÕÏ1
+pphp:S100["URename function "get_this_wikis" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(û¢Àþ8„¡ ÕÏ1
+ophp:S100t"TRename function "archiver_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ßéš‡8„¡ ÕÏ1
+†	php:S1488U"eImmediately return this expression instead of assigning it to the temporary variable "$lastInsertId".(ÊíÐïÿÿÿÿÿ8„¡ ÕÏ1

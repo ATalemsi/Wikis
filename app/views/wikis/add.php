@@ -1,81 +1,133 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="p-8 sm:ml-64">
-    <form action="/your-submit-endpoint" method="post" class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
-        <div class="mb-4">
-            <label for="title" class="block text-sm font-semibold text-gray-600">Title:</label>
-            <input type="text" id="title" name="title" required
-                   class="w-full mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500">
+    <div id="formWiki" class="lg:mt-16 grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 items-center">
+        <div class="flex flex-col justify-between">
+            <div class="space-y-2">
+                <h2 class="text-4xl font-bold leading-lg lg:text-5xl">Let's share knowledge!</h2>
+                <div class="text-gray-600 dark:text-gray-400">Vivamus in nisl metus? Phasellus.</div>
+            </div>
+            <img src="<?= URLROOT; ?>/public/img/wikiLOGO.png" alt="Wiki Logo" class="p-6 h-52 md:h-64">
         </div>
+        <form method="post" action="<?= URLROOT; ?>/wikis/add" class="space-y-6 border h-fit p-4 rounded border-black">
 
-        <div class="mb-4">
-            <label for="description" class="block text-sm font-semibold text-gray-600">Description:</label>
-            <textarea id="description" name="description" rows="4" required
-                      class="w-full mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500"></textarea>
-        </div>
 
-        <div class="mb-4">
-            <label for="category" class="block text-sm font-semibold text-gray-600">Category:</label>
-            <select id="category" name="category" onchange="showTags(this.value)" required
-                    class="w-full mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500">
-                <option value="" disabled selected>Select Category</option>
-                <option value="science">Science</option>
-                <option value="technology">Technology</option>
-                <option value="history">History</option>
-                <!-- Add more categories as needed -->
-            </select>
-        </div>
 
-        <div id="tagsContainer" style="display: none" class="mb-4">
-            <label for="tags" class="block text-sm font-semibold text-gray-600">Tags:</label>
-            <select id="tags" name="tags[]" multiple
-                    class="w-full mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500">
-                <!-- Tags will be dynamically added here based on the selected category -->
-            </select>
-        </div>
+            <div class="w-full">
+                <label class="block text-lg font-semibold mb-2 text-black" for="grid-state">
+                    Choose Categories
+                </label>
+                <div class="relative">
+                    <select name="categorieID" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" required id="grid-state">
+                        <option value="">Sélectionnez une catégorie</option>
+                        <?php foreach ($data['categories'] as $categorie) : ?>
+                            <option value="<?= $categorie->CategoryID; ?>"><?= $categorie->CategoryName; ?> </option>
+                        <?php endforeach; ?>
+                    </select>
 
-        <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
-            Add Wiki
-        </button>
-    </form>
+                </div>
+             </div>
 
-</div>
+
+
+            <div class="w-full">
+                <label class="block text-lg font-semibold mb-2 text-black" for="grid-state-tags">
+                    Choose Your Tags
+                </label>
+                <div class="relative">
+                    <select name="tagname" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state-tags">
+                        <option value="">Sélectionnez un tag</option>
+                        <?php foreach ($data['tags'] as $tag) : ?>
+                            <option value="<?= $tag->TagID; ?>"><?= $tag->TagName; ?> </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- Container to display selected tags -->
+            <!-- <div id="selected-tags" name="selected-tags"></div>
+        <input type="hidden" id="selected-tags-input" name="selected_tags" value="">
+                 -->
+
+            <!-- Ajoutez ces lignes à votre formulaire -->
+            <input type="hidden" id="selected_tag_id" name="selected_tag_id" value="">
+            <div id="selected-tag-names"></div>
+            <div class="mt-4">
+                <label class="block text-sm font-semibold text-gray-700" for="titre">Title</label>
+                <input type="text" name="titre" class="w-full p-3 border rounded border-black bg-white bg-gray-800 text-gray-800 ">
+            </div>
+
+            <div class="mt-4">
+                <label for="content" class="block text-sm font-semibold text-gray-700">Description</label>
+                <textarea id="content" name="content" rows="3" class="w-full p-3 border rounded border-black bg-white bg-gray-800 text-gray-800 "></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white text-sm font-bold uppercase rounded hover:bg-blue-600 dark:bg-gray-800 text-gray-900 py-3">
+                Create Your Wiki
+            </button>
+        </form>
+    </div>
+
+
     <script>
-        var categoryTags = {
-            science: ["biology", "physics", "chemistry"],
-            technology: ["programming", "web-development", "artificial-intelligence"],
-            history: ["ancient-history", "modern-history"]
-            // Add more relationships as needed
-        };
 
-        function showTags(selectedCategory) {
-            var tagsContainer = document.getElementById('tagsContainer');
-            var tagsSelect = document.getElementById('tags');
+        document.addEventListener("DOMContentLoaded", function() {
+            var selectedTagIds = [];
 
-            // Clear existing options
-            tagsSelect.innerHTML = '';
+            function updateDisplayedTags() {
+                var tagsContainer = document.getElementById("selected-tag-names");
+                var selectedTagIdInput = document.getElementById("selected_tag_id");
+                tagsContainer.innerHTML = "";
 
-            if (selectedCategory) {
-                // Get tags for the selected category
-                var categoryRelationship = categoryTags[selectedCategory];
+                selectedTagIds.forEach(function(tagId) {
+                    var tagName = getTagNameById(tagId);
+                    // Fonction pour récupérer le nom du tag
+                    var tag = document.createElement("span");
+                    tag.className = "selected-tag";
+                    tag.innerHTML = "<span class='bg-blue-500 text-white p-1 rounded-md m-1'>" + tagName + "</span><button class='text-red-500' data-tag-id=\"" + tagId + "\">Remove</button>";
+                    tagsContainer.appendChild(tag);
 
-                if (categoryRelationship) {
-                    // Populate the tags dropdown with options
-                    categoryRelationship.forEach(function(tag) {
-                        var option = document.createElement('option');
-                        option.value = tag;
-                        option.text = tag;
-                        tagsSelect.add(option);
-                    });
-                }
+                    // Attach the click event to the Remove button
+                    var removeButton = tag.querySelector("button");
+                    removeButton.addEventListener("click", removeTag);
+                });
 
-                // Display the tags container
-                tagsContainer.style.display = 'block';
-            } else {
-                // Hide the tags container if no category is selected
-                tagsContainer.style.display = 'none';
+
+                selectedTagIdInput.value = JSON.stringify(selectedTagIds);
+                console.log(selectedTagIdInput.value);
             }
-        }
+
+            function getTagNameById(tagId) {
+                // Fonction pour récupérer le nom du tag à partir du tableau de données des tags
+                var tag = <?php echo json_encode($data['tags']); ?>;
+                for (var i = 0; i < tag.length; i++) {
+                    if (tag[i].TagID == tagId) {
+                        return tag[i].TagName;
+                    }
+                }
+                return "";
+            }
+
+            function removeTag(event) {
+                var tagId = event.target.dataset.tagId;
+                var index = selectedTagIds.indexOf(tagId);
+                if (index !== -1) {
+                    selectedTagIds.splice(index, 1);
+                    updateDisplayedTags();
+                }
+            }
+
+            // Event listener for the select element
+            var selectElement = document.getElementById("grid-state-tags");
+            selectElement.addEventListener("change", function() {
+                var selectedTagId = selectElement.value;
+                if (selectedTagId && !selectedTagIds.includes(selectedTagId)) {
+                    selectedTagIds.push(selectedTagId);
+                    updateDisplayedTags();
+                }
+            });
+        });
     </script>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 

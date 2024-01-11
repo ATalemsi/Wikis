@@ -30,7 +30,7 @@
 
       $row = $this->db->single();
 
-      $hashed_password = $row->password;
+      $hashed_password = $row->PasswordHash;
       if(password_verify($password, $hashed_password)){
         return $row;
       } else {

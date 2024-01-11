@@ -3,20 +3,21 @@
 <div class="p-8 sm:ml-64">
     <div class="flex justify-between items-center mb-8 my-16">
         <h1 class="text-2xl font-bold">Categories</h1>
-        <a href="#" onclick="openAddCategoryModal()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">+Add Category</a>
+        <a  onclick="openAddCategoryModal()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">+Add Category</a>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
         <?php foreach ($data['categories'] as $category) :?>
             <div class="bg-white rounded-lg shadow-md p-4">
                 <h2 class="text-xl font-bold mb-2"><?php echo $category->CategoryName; ?></h2>
-
+                <?php if(isset($_SESSION['user_id'])) :?>
                 <div class="flex space-x-4">
                     <a href="<?php echo URLROOT; ?>/categories/delete/<?php echo $category->CategoryID; ?>"
                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</a>
                     <button onclick="openUpdateCategoryModal('<?php echo $category->CategoryID; ?>', '<?php echo $category->CategoryName; ?>')"
                             class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Update</button>
                 </div>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
     </div>
@@ -41,8 +42,8 @@
         </form>
     </div>
 </div>
-<?php if (isset($data['modal']) && $data['modal']) : ?>
-    <div id="updateCategoryModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+
+    <div id="updateCategoryModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-8 rounded-md shadow-md">
             <h2 class="text-2xl font-bold mb-4">Update Category</h2>
             <form action="<?php echo URLROOT; ?>/categories/edit" method="post">
@@ -59,7 +60,7 @@
             </form>
         </div>
     </div>
-<?php endif; ?>
+
 
 <script>
     function openAddCategoryModal() {

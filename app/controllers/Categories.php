@@ -13,34 +13,38 @@ class Categories extends Controller
         // get Projects
 
         $categories = $this->categoriesmodel->getCategories();
+
         $data = [
             'categories' => $categories
         ];
+
         $this->view('categories/index', $data);
     }
     public function add()
     {
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //sanitize POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $data = [
                 'categorie_name' => trim($_POST['categoryName']),
-                'user_id' => $_SESSION['UserID'],
+                'user_id' => $_SESSION['user_id'],
                 'categorie_name_error' => ''
 
             ];
             //Validate project_name
-            if (empty($data['categoryName'])) {
+            if (empty($data['categorie_name'])) {
                 $data['categorie_name_error'] = 'Please entre Categorie name';
             }
 
             //Make sure no errors
             if (empty($data['categorie_name_error'])) {
                 //Validated
+
                 if ($this->categoriesmodel->addCategorie($data)) {
                     flash('categorie_message', 'categorie Added');
                     redirect('categories');
-                    # code...
+
                 } else {
                     die('Something went wrong ');
                 }
@@ -106,8 +110,6 @@ class Categories extends Controller
                 'categorie_name' => $category->CategoryName
             ];
 
-            // Pass additional parameter for modal
-            $data['modal'] = true;
 
             $this->view('categories/index', $data);
         }

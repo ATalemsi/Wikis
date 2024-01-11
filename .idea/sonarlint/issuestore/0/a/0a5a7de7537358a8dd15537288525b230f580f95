@@ -1,5 +1,12 @@
 
-fphp:S103%"KSplit this 152 characters long line (which is greater than 120 authorized).(°Ëé›8ãº‡÷Î1
+UWeb:AvoidCommentedOutCodeCheck1"Remove this commented out code.(¦ëÁºüÿÿÿÿ8Õ³Ù®Ï1
+fphp:S103"KSplit this 164 characters long line (which is greater than 120 authorized).(©”ı8ô†šÏ1
+fphp:S103"KSplit this 251 characters long line (which is greater than 120 authorized).(ì•ÄÕ8ñ ©¡Ï1
+ephp:S103&"KSplit this 243 characters long line (which is greater than 120 authorized).(©ã˜T8õ†šÏ1
+fphp:S103:"KSplit this 131 characters long line (which is greater than 120 authorized).(ûÈ¨è8Ææ‡«Ï1
+fphp:S103?"KSplit this 157 characters long line (which is greater than 120 authorized).(à¾Ûß8¨”‡«Ï1
+kphp:S103B"KSplit this 162 characters long line (which is greater than 120 authorized).(š†ü—ÿÿÿÿÿ8ş›”«Ï1
+fphp:S103X"KSplit this 191 characters long line (which is greater than 120 authorized).(·ˆ¬8ŒüÖ®Ï1
 G	php:S2003"&Replace "require" with "require_once".(óáöéùÿÿÿÿ8Œ¶…÷Î1
 B	php:S2003"&Replace "require" with "require_once".(ª¢ˆ»8¶…÷Î1
-G	php:S2003P"&Replace "require" with "require_once".(Å©ŞĞúÿÿÿÿ8’÷†÷Î1
+H	php:S2003„"&Replace "require" with "require_once".(Å©ŞĞúÿÿÿÿ8’÷†÷Î1

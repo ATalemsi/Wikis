@@ -1,3 +1,5 @@
 
-kphp:S103"KSplit this 130 characters long line (which is greater than 120 authorized).(…¥å’ıÿÿÿÿ8®ÎÔƒÏ1
-m	php:S1192"LDefine a constant instead of duplicating this literal ":categoryID" 3 times.(…ƒÁ‚şÿÿÿÿ8×â„Ï1
+kphp:S103""KSplit this 130 characters long line (which is greater than 120 authorized).(…¥å’ıÿÿÿÿ8®ÎÔƒÏ1
+rphp:S100"WRename function "fetch_categories" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(Ğ·ËÑ8ğ×ş Ï1
+xphp:S100C"XRename function "get_this_category" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ØÌşÿúÿÿÿÿ8±·¡Ï1
+m	php:S1192."LDefine a constant instead of duplicating this literal ":categoryID" 3 times.(…ƒÁ‚şÿÿÿÿ8×â„Ï1

@@ -46,7 +46,7 @@
 <div id="updateTagModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
     <div class="bg-white p-8 rounded-md shadow-md">
         <h2 class="text-2xl font-bold mb-4">Update Tag</h2>
-        <form action="<?php echo URLROOT; ?>/tags/update" method="post">
+        <form action="<?php echo URLROOT; ?>/tags/edit" method="post">
             <input type="hidden" id="updateTagId" name="tagId" value="">
             <div class="mb-4">
                 <label for="updateTagName" class="block text-gray-700 font-semibold mb-2">Tag Name</label>
@@ -72,7 +72,7 @@
 
     function openUpdateTagModal(tagId, tagName) {
         document.getElementById('updateTagId').value = tagId;
-        document.getElementById('updateTagName').value = tagName; // Pre-fill the existing name
+        document.getElementById('updateTagName').value = tagName;
         document.getElementById('updateTagModal').classList.remove('hidden');
     }
 

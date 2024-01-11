@@ -101,9 +101,8 @@
           'email_err' => '',
           'password_err' => '',
         ];
-
         // Validate Email
-        if(empty($data['email'])){
+        if(empty($data['Email'])){
           $data['email_err'] = 'Pleae enter email';
         }
 
@@ -124,9 +123,9 @@
         if(empty($data['email_err']) && empty($data['password_err'])){
           // Validated
           // Check and set logged in user
-          $loggedInUser = $this->userModel->login($data['email'], $data['password']);
-
+          $loggedInUser = $this->userModel->login($data['Email'], $data['password']);
           if($loggedInUser){
+
             // Create Session
             $this->createUserSession($loggedInUser);
           } else {
