@@ -9,8 +9,7 @@
                     </svg>
                 </button>
                 <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span>
+                    <img src="<?php echo URLROOT?>/public/img/LogoMakr.png" class="h-8 me-3" alt="Logo " />
                 </a>
             </div>
             <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">

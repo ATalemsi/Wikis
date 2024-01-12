@@ -25,8 +25,8 @@ class Wiki
         JOIN wiki.categories c ON w.CategoryID = c.CategoryID
         LEFT JOIN wiki.wikitags wt ON w.WikiID = wt.WikiID
         LEFT JOIN wiki.tags t ON wt.TagID = t.TagID
-       
-            w.archive = 1 and 
+       where
+            w.archive = 1 
         GROUP BY
             w.WikiID
         ORDER BY
@@ -62,6 +62,7 @@ class Wiki
             w.Title,
             w.Content,
             w.AuthorID,
+            w.CreationDate,
             c.CategoryID,
             c.CategoryName,
             u.FirstName,
@@ -82,7 +83,7 @@ class Wiki
 
             $this->db->bind(':wikiID', $id);
             $this->db->execute();
-            return $this->db->resultSet();
+            return $this->db->single();
         }catch(PDOException $e){
             return $e->getMessage();
 
@@ -210,7 +211,6 @@ class Wiki
         try {
             $this->db->query(" DELETE FROM wiki.wikis WHERE WikiID=:wiki_id");
             $this->db->bind(':wiki_id', $id );
-            $this->db->execute();
             return  $this->db->execute();
         } catch (PDOException $e) {
             return $e->getMessage();

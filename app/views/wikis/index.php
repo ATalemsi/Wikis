@@ -8,7 +8,7 @@
                 <?php foreach ($data['wikis'] as $wiki) : ?>
                 <div class=" flex flex-col g-10 border-b-2 pb-8 border-gray-400">
                     <h2 class="text-4xl font-bold mt-4 mb-2"><?= $wiki->Title; ?></h2>
-                    <p class="text-gray-700 mb-4"><?= $wiki->Content; ?>.</p>
+                    <p class="text-gray-700 mb-4"><?php echo (strlen($wiki->Content) > 100) ? substr($wiki->Content, 0, 50) . '...' : $wiki->Content; ?>.</p>
 
                     <?php if (!empty($wiki->TagNames)) : ?>
                     <div class="flex flex-wrap gap-2 mt-4">
@@ -46,7 +46,7 @@
                         <?php foreach ($data['recentPosts'] as $post) : ?>
                            <?php if ($post->archive ==1): ?>
                             <li class="mb-2">
-                                <a href="<?php echo URLROOT?>/wikis/show/<?php $post->WikiID ?>" class="text-gray-700 hover:text-gray-900"><?= $post->Title; ?></a>
+                                <a href="<?php echo URLROOT?>/wikis/show/<?php echo $post->WikiID ?>" class="text-gray-700 hover:text-gray-900"><?= $post->Title; ?></a>
                             </li>
                             <?php endif; ?>
                         <?php endforeach; ?>

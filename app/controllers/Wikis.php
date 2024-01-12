@@ -35,13 +35,13 @@ class Wikis extends Controller
     {
         $wiki = $this->wikismodel->getWikiById($id); // Implement this method in your model
 
-        if ($wiki) {
+
             $data = [
                 'wikis' => $wiki,
             ];
 
             $this->view('wikis/show', $data);
-        }
+
     }
     public function search(){
         if (isset($_POST['input'])) {
@@ -235,5 +235,10 @@ class Wikis extends Controller
         $this->wikismodel->archiver_wiki($id_wiki);
         redirect('wikis/index');
     }
+    public function delete($id_wiki){
+        $this->wikismodel->delete_wiki($id_wiki);
+        redirect('wikis/index');
+    }
+
 
 }
