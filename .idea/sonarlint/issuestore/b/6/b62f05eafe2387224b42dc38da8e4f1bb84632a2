@@ -1,6 +1,9 @@
 
-kphp:S103#"KSplit this 163 characters long line (which is greater than 120 authorized).(å¦¨Ğÿÿÿÿÿ8¢ß€ÔÏ1
-kphp:S103s"KSplit this 160 characters long line (which is greater than 120 authorized).(Õ·ùÖúÿÿÿÿ8ïïêÕÏ1
-G	php:S2003"&Replace "require" with "require_once".(óáöéùÿÿÿÿ8¢ß€ÔÏ1
-B	php:S2003"&Replace "require" with "require_once".(ª¢ˆ»8¢ß€ÔÏ1
-H	php:S2003ƒ"&Replace "require" with "require_once".(Å©ŞĞúÿÿÿÿ8¢ß€ÔÏ1
+fphp:S103"KSplit this 141 characters long line (which is greater than 120 authorized).(«Û¢8Ì–çïÏ1
+fphp:S103"KSplit this 141 characters long line (which is greater than 120 authorized).(àŒ÷8Ì–çïÏ1
+kphp:S103""KSplit this 147 characters long line (which is greater than 120 authorized).(€ùĞ‘øÿÿÿÿ8Ì–çïÏ1
+fphp:S103$"KSplit this 139 characters long line (which is greater than 120 authorized).(”Å²ƒ8Ş€ºòÏ1
+kphp:S1031"KSplit this 163 characters long line (which is greater than 120 authorized).(å¦¨Ğÿÿÿÿÿ8§Ğ×ïÏ1
+G	php:S2003"&Replace "require" with "require_once".(óáöéùÿÿÿÿ8§Ğ×ïÏ1
+B	php:S2003"&Replace "require" with "require_once".(ª¢ˆ»8§Ğ×ïÏ1
+G	php:S2003o"&Replace "require" with "require_once".(Å©ŞĞúÿÿÿÿ8§Ğ×ïÏ1

@@ -64,9 +64,9 @@ class Categorie
         //Execute
         return $this->db->execute();
     }
-    public function get_this_category($id_categ){
+    public function get_this_category($id){
         $this->db->query(" SELECT * FROM wiki.categories WHERE CategoryID=:category_id");
-        $this->db->bind(':category_id', $id_categ );
+        $this->db->bind(':category_id', $id );
 
         return  $this->db->single();
     }

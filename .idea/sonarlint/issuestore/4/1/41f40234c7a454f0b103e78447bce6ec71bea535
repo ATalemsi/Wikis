@@ -1,7 +1,14 @@
 
-\	php:S1131J"@Remove the useless trailing whitespaces at the end of this line.(–İçá8ƒ¡ ÕÏ1
-pphp:S100"PRename function "get_wikis" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(Ú…Š¬üÿÿÿÿ8„¡ ÕÏ1
-ophp:S100I"ORename function "add_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ºğıšÿÿÿÿÿ8„¡ ÕÏ1
-pphp:S100["URename function "get_this_wikis" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(û¢Àş8„¡ ÕÏ1
-ophp:S100t"TRename function "archiver_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ßéš‡8„¡ ÕÏ1
-†	php:S1488U"eImmediately return this expression instead of assigning it to the temporary variable "$lastInsertId".(ÊíĞïÿÿÿÿÿ8„¡ ÕÏ1
+\	php:S1131'"@Remove the useless trailing whitespaces at the end of this line.(–İçá8œ¼ÿğÏ1
+kphp:S103j"KSplit this 147 characters long line (which is greater than 120 authorized).(òÛÍøÿÿÿÿ8ÙÌ©òÏ1
+lphp:S103Â"KSplit this 141 characters long line (which is greater than 120 authorized).(…Ô›ûùÿÿÿÿ8¼ÿğÏ1
+lphp:S103Æ"KSplit this 121 characters long line (which is greater than 120 authorized).(¦Û–Šøÿÿÿÿ8¼ÿğÏ1
+pphp:S100"PRename function "get_wikis" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(Ú…Š¬üÿÿÿÿ8¼ÿğÏ1
+ophp:S100&"ORename function "add_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ºğıšÿÿÿÿÿ8¼ÿğÏ1
+qphp:S100["QRename function "found_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ëïÈÿşÿÿÿÿ8¼ÿğÏ1
+qphp:S100·"URename function "get_this_wikis" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(†Ëúú8¼ÿğÏ1
+sphp:S100¿"RRename function "update_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(†ÇÑşÿÿÿÿ8¼ÿğÏ1
+sphp:S100Ğ"RRename function "delete_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(äçÁÙÿÿÿÿÿ8¼ÿğÏ1
+pphp:S100Û"TRename function "archiver_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(ßéš‡8¼ÿğÏ1
+k	php:S1192º"IDefine a constant instead of duplicating this literal ":wiki_id" 4 times.(êÜˆúÿÿÿÿ8¼ÿğÏ1
+†	php:S14882"eImmediately return this expression instead of assigning it to the temporary variable "$lastInsertId".(ÊíĞïÿÿÿÿÿ8¼ÿğÏ1

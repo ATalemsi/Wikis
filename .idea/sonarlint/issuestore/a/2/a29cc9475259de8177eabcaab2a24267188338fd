@@ -1,0 +1,10 @@
+
+fphp:S103J"KSplit this 141 characters long line (which is greater than 120 authorized).(¡®Ìô8Ş¨¾òÏ1
+fphp:S103K"KSplit this 141 characters long line (which is greater than 120 authorized).(ƒ“ãÖ8Ş¨¾òÏ1
+fphp:S103O"KSplit this 147 characters long line (which is greater than 120 authorized).(ôÁú½8Ş¨¾òÏ1
+kphp:S103Q"KSplit this 137 characters long line (which is greater than 120 authorized).(Ÿ·˜”úÿÿÿÿ8Ş¨¾òÏ1
+u	php:S3776."TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(î¢¥ıÿÿÿÿ8ß¨¾òÏ1
+f	php:S1192J"JDefine a constant instead of duplicating this literal "<a href="" 3 times.(¡®Ìô8ß¨¾òÏ1
+h	php:S1192@"GDefine a constant instead of duplicating this literal "</div>" 4 times.(˜ñÄøÿÿÿÿ8ß¨¾òÏ1
+l	php:S1192 "JDefine a constant instead of duplicating this literal "wikis/add" 3 times.(öÇİ¾ùÿÿÿÿ8ß¨¾òÏ1
+=	php:S1116U"Remove this empty statement.(ôŸìúÿÿÿÿ8ß¨¾òÏ1

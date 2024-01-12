@@ -1,0 +1,42 @@
+<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
+<div class="p-8 sm:ml-64">
+    <main class="container mx-auto mt-8">
+        <div class="flex flex-wrap justify-between">
+            <div id="search_result" class="w-full md:w-8/12 px-4 mb-8 flex flex-col gap-8"></div>
+            <div id="wikis" class="w-full md:w-8/12 px-4 mb-8 flex flex-col gap-8">
+
+                    <div class=" flex flex-col g-10 border-b-2 pb-8 border-gray-400">
+                        <h2 class="text-4xl font-bold mt-4 mb-2"><?= $data['wikis']->Title; ?></h2>
+                        <p class="text-gray-700 mb-4"><?= $data['wikis'] ->Content; ?>.</p>
+
+                        <?php if (!empty($data['wikis'] ->TagNames)) : ?>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <?php
+                                $tags = explode(", ", $data['wikis'] ->TagNames);
+                                foreach ($tags as $tag) : ?>
+                                    <span class="bg-gray-300 p-2 rounded"><?= $tag; ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="mt-4">
+                            <span class="bg-blue-300 p-2 rounded"><?= $data['wikis'] ->CategoryName; ?></span>
+                        </div>
+
+                        <!-- Only show the buttons if the user is authenticated and owns the wiki -->
+                        <div class="mt-4 ml-auto">
+                            <?php if ($data['wikis']->AuthorID === $_SESSION['user_id'] && $_SESSION['UserRole'] == 'autheur') : ?>
+                                <a href="<?= URLROOT . '/wikis/edit/' . $data['wikis']->WikiID; ?>" class="bg-green-500 text-white p-2 rounded">Update</a>
+                                <a href="<?= URLROOT . '/wikis/delete/' . $data['wikis']->WikiID; ?>" class="bg-red-500 text-white p-2 rounded">Delete</a>
+                            <?php endif; ?>
+
+                            <?php if (isset($_SESSION['UserRole']) && $_SESSION['UserRole'] == 'admin')   : ?>
+                                <a href="<?= URLROOT . '/wikis/archiver/' . $data['wikis']->WikiID; ?>" class="bg-violet-500 text-white p-2 rounded">Archive</a>
+                            <?php endif; ?>
+                            <a href="<?= URLROOT . '/wikis/show/' . $data['wikis']->WikiID; ?>" class="bg-blue-500 text-white p-2 rounded">Show More</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </main>
+</div>

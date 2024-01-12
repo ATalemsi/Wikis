@@ -12,7 +12,7 @@ class Categories extends Controller
     {
         // get Projects
 
-        $categories = $this->categoriesmodel->getCategories();
+        $categories = $this->categoriesmodel->fetch_categories();
 
         $data = [
             'categories' => $categories

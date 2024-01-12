@@ -69,11 +69,26 @@ class Tag
 
         echo "Records inserted successfully.";
     }
-    public function get_tags_wiki($id_wiki){
+    public function get_tags_wiki($id){
         $this->db->query( "SELECT * FROM wiki.tags join wiki.wikitags on wikitags.TagID = tags.TagID WHERE wikitags.WikiID=:wiki_id ");
-        $this->db->bind(':wiki_id',$id_wiki);
+        $this->db->bind(':wiki_id',$id);
 
         return $this->db->resultSet();
+    }
+    public function delete_tags($id){
+        try{
+            $this->db->query('DELETE  FROM wiki.wikitags WHERE WikiID  = :wiki_id');
+            $this->db->bind(':wiki_id',$id);
+            if( $this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
     }
 }
 

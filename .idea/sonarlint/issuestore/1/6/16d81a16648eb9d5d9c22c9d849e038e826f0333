@@ -1,0 +1,15 @@
+
+UWeb:AvoidCommentedOutCodeCheck1"Remove this commented out code.(¦ëÁºüÿÿÿÿ8İÔûéÏ1
+fphp:S103"KSplit this 164 characters long line (which is greater than 120 authorized).(©”ı8ò¡„ëÏ1
+kphp:S103"KSplit this 156 characters long line (which is greater than 120 authorized).(ëÛç¦ıÿÿÿÿ8Ğå™ëÏ1
+fphp:S103"KSplit this 251 characters long line (which is greater than 120 authorized).(ì•ÄÕ8ò¡„ëÏ1
+fphp:S103"KSplit this 213 characters long line (which is greater than 120 authorized).(œùîŒ8ó¡„ëÏ1
+ephp:S103&"KSplit this 243 characters long line (which is greater than 120 authorized).(©ã˜T8ó¡„ëÏ1
+kphp:S103:"KSplit this 175 characters long line (which is greater than 120 authorized).(Ú£ÌÙıÿÿÿÿ8ó¡„ëÏ1
+kphp:S103?"KSplit this 194 characters long line (which is greater than 120 authorized).(éÊ…õúÿÿÿÿ8ó¡„ëÏ1
+kphp:S103B"KSplit this 162 characters long line (which is greater than 120 authorized).(š†ü—ÿÿÿÿÿ8ó¡„ëÏ1
+fphp:S103`"KSplit this 195 characters long line (which is greater than 120 authorized).(·ˆ¬8ó¡„ëÏ1
+G	php:S2003"&Replace "require" with "require_once".(óáöéùÿÿÿÿ8ó¡„ëÏ1
+B	php:S2003"&Replace "require" with "require_once".(ª¢ˆ»8ó¡„ëÏ1
+H	php:S2003Œ"&Replace "require" with "require_once".(Å©ŞĞúÿÿÿÿ8ó¡„ëÏ1
+N	php:S6600Q"-Remove the parentheses from this "echo" call.(‚¸šÓüÿÿÿÿ8ó¡„ëÏ1

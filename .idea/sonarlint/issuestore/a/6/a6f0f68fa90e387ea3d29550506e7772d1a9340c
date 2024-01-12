@@ -2,5 +2,8 @@
 fphp:S103I"KSplit this 135 characters long line (which is greater than 120 authorized).(û¼¤â8˜õ÷ Ï1
 lphp:S100"QRename function "fetch_tags" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(„ÊÌ™8àù Ï1
 ophp:S1005"TRename function "add_wiki_tags" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(®®ªû8Ê—„ Ï1
-tphp:S100H"TRename function "get_tags_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(÷Ó›¢úÿÿÿÿ8³åˆ Ï1
+ophp:S100H"TRename function "get_tags_wiki" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(—â®Ã8³åˆ Ï1
+rphp:S100N"RRename function "delete_tags" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(Óè·äüÿÿÿÿ8ìëÏ1
 h	php:S1192"GDefine a constant instead of duplicating this literal ":tagID" 3 times.(¨´¨Èùÿÿÿÿ8”¬«—Ï1
+j	php:S1192A"IDefine a constant instead of duplicating this literal ":wiki_id" 3 times.(êÜˆúÿÿÿÿ8ìëÏ1
+f	php:S1126R"EReplace this "if-then-else" statement by a single "return" statement.(ÌÍîºşÿÿÿÿ8ìëÏ1
