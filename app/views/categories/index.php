@@ -29,7 +29,7 @@
         <h2 class="text-2xl font-bold mb-4">Add Category</h2>
 
         <!-- Category Form -->
-        <form action="<?php echo URLROOT; ?>/categories/add" method="post">
+        <form action="<?php echo URLROOT; ?>/categories/add" method="post" onsubmit="return validateCategoryForm()">
             <div class="mb-4">
                 <label for="categoryName" class="block text-gray-700 font-semibold mb-2">Category Name</label>
                 <input type="text" id="categoryName" name="categoryName" class="w-full p-2 border border-gray-300 rounded-md">
@@ -46,7 +46,7 @@
     <div id="updateCategoryModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-8 rounded-md shadow-md">
             <h2 class="text-2xl font-bold mb-4">Update Category</h2>
-            <form action="<?php echo URLROOT; ?>/categories/edit" method="post">
+            <form action="<?php echo URLROOT; ?>/categories/edit" method="post" onsubmit="return validateUpdateCategoryForm()">
                 <input type="hidden" id="updateCategoryId" name="categoryId" value="">
                 <div class="mb-4">
                     <label for="updateCategoryName" class="block text-gray-700 font-semibold mb-2">Category Name</label>
@@ -79,6 +79,26 @@
     function closeUpdateCategoryModal() {
         document.getElementById('updateCategoryModal').classList.add('hidden');
     }
+    function validateCategoryForm() {
+        var categoryNameInput = document.getElementById('categoryName').value;
+        if (!/^[a-zA-Z0-9](?:[a-zA-Z0-9 ]*[a-zA-Z0-9])?$/.test(categoryNameInput)) {
+            // Invalid input, display error message or prevent form submission
+            alert('Invalid Category Name');
+            return false;
+        }
+        return true;
+    }
+    function validateUpdateCategoryForm() {
+        var updateCategoryName = document.getElementById('updateCategoryName').value;
+
+        if (!/^[a-zA-Z0-9](?:[a-zA-Z0-9 ]*[a-zA-Z0-9])?$/.test(updateCategoryName)) {
+            // Invalid input, display error message or prevent form submission
+            alert('Invalid Category Name');
+            return false;
+        }
+        return true;
+    }
+
 </script>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -58,6 +58,7 @@ class Categories extends Controller
         } else {
             $data = [
                 'categorie_name' => '',
+                'categorie_name_error' => '',
 
             ];
             $this->view('categories/index', $data);
@@ -107,7 +108,8 @@ class Categories extends Controller
 
             $data = [
                 'CategoryID' =>$id,
-                'categorie_name' => $category->CategoryName
+                'categorie_name' => $category->CategoryName,
+                'categorie_name_error' => ''
             ];
 
 

@@ -44,23 +44,18 @@
                 </div>
             </div>
 
-
-            <!-- Container to display selected tags -->
-            <!-- <div id="selected-tags" name="selected-tags"></div>
-        <input type="hidden" id="selected-tags-input" name="selected_tags" value="">
-                 -->
-
-            <!-- Ajoutez ces lignes à votre formulaire -->
             <input type="hidden" id="selected_tag_id" name="selected_tag_id" value="">
             <div id="selected-tag-names"></div>
             <div class="mt-4">
                 <label class="block text-sm font-semibold text-gray-700" for="titre">Title</label>
-                <input type="text" name="titre" class="w-full p-3 border rounded border-black bg-white bg-gray-800 text-gray-800 " value="<?php echo $data['wiki']->Title; ?>">
+                <input type="text" name="titre" class="w-full p-3 border rounded border-black bg-white bg-gray-800 text-gray-800 <?php echo (!empty($data['titre_err'])) ? 'invalid:border-red-500' : ''; ?> " value="<?php echo $data['wiki']->Title; ?>">
+                <span class="mt-2 text-sm text-red-500 <?php echo (!empty($data['titre_err'])) ? 'block' : 'hidden'; ?>"><?php echo $data['titre_err']; ?></span>
             </div>
 
             <div class="mt-4">
                 <label for="content" class="block text-sm font-semibold text-gray-700">Description</label>
-                <textarea id="content" name="content" rows="3" class="w-full p-3 border rounded border-black bg-white bg-gray-800 text-gray-800 "><?php echo $data['wiki']->Content; ?></textarea>
+                <textarea id="content" name="content" rows="3" class="w-full p-3 border rounded border-black bg-white bg-gray-800 text-gray-800 <?php echo (!empty($data['content_err'])) ? 'invalid:border-red-500' : ''; ?> "><?php echo $data['wiki']->Content; ?></textarea>
+                <span class="mt-2 text-sm text-red-500 <?php echo (!empty($data['content_err'])) ? 'block' : 'hidden'; ?>"><?php echo $data['content_err']; ?></span>
             </div>
 
             <button type="submit" class="w-full bg-blue-500 text-white text-sm font-bold uppercase rounded hover:bg-blue-600 dark:bg-gray-800 text-gray-900 py-3">
@@ -136,6 +131,26 @@
                 }
             });
         });
+        var titleInput = document.getElementById('title');
+        var contentInput = document.getElementById('content');
+
+        function validateWikiForm() {
+            // Validate Title
+            var titleValue = titleInput.value.trim();
+            if (!/^[a-zA-Z0-9](?:[a-zA-Z0-9 ]*[a-zA-Z0-9])?$/.test(titleValue) || titleValue.length < 3) {
+                alert('Invalid title  must be at least 3 characters.  ');
+                return false;
+
+            }
+            // Validate Content
+            var contentValue = contentInput.value.trim();
+            if (contentValue.length < 30) {
+                alert('Content must be at least 30 characters.');
+                return false;
+            }
+            // Return true if all validations pass
+            return true;
+        }
     </script>
     <?php require APPROOT . '/views/inc/footer.php'; ?>
 

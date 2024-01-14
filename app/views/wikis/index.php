@@ -25,7 +25,7 @@
 
                         <!-- Only show the buttons if the user is authenticated and owns the wiki -->
                     <div class="mt-4 ml-auto">
-                        <?php if ($wiki->AuthorID === $_SESSION['user_id'] && $_SESSION['UserRole'] == 'autheur') : ?>
+                        <?php if (isset($_SESSION['user_id']) && $wiki->AuthorID === $_SESSION['user_id'] && $_SESSION['UserRole'] == 'autheur') : ?>
                             <a href="<?= URLROOT . '/wikis/edit/' . $wiki->WikiID; ?>" class="bg-green-500 text-white p-2 rounded">Update</a>
                             <a href="<?= URLROOT . '/wikis/delete/' . $wiki->WikiID; ?>" class="bg-red-500 text-white p-2 rounded">Delete</a>
                         <?php endif; ?>

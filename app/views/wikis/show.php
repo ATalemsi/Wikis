@@ -22,9 +22,9 @@
                         <div class="mt-4">
                             <span class="bg-blue-300 p-2 rounded"><?= $data['wikis'] ->CategoryName; ?></span>
                         </div>
-                        <p class="text-gray-500 mt-2">Created on <?= $data['wikis']->CreationDate; ?></p>
+                        <p class="text-gray-500 mt-2">Created on <?= date('Y/m/d', strtotime($data['wikis']->CreationDate)); ?></p>
                         <div class="mt-4 ml-auto">
-                            <?php if ($data['wikis']->AuthorID === $_SESSION['user_id'] && $_SESSION['UserRole'] == 'autheur') : ?>
+                            <?php if ( isset($_SESSION['user_id']) && $data['wikis']->AuthorID === $_SESSION['user_id'] && $_SESSION['UserRole'] == 'autheur') : ?>
                                 <a href="<?= URLROOT . '/wikis/edit/' . $data['wikis']->WikiID; ?>" class="bg-green-500 text-white p-2 rounded">Update</a>
                                 <a href="<?= URLROOT . '/wikis/delete/' . $data['wikis']->WikiID; ?>" class="bg-red-500 text-white p-2 rounded">Delete</a>
                             <?php endif; ?>

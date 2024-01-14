@@ -165,9 +165,9 @@ class Wikis extends Controller
                 'tags' => $this->tagmodel->fetch_tags(),
                 'selected_tags' => '',
                 'titre' => '',
-                'description' => '',
+                'content' => '',
                 'titre_err' => '',
-                'description_err' => ''
+                'content_err' => ''
             ];
 
             $this->view('wikis/add', $data);

@@ -33,6 +33,7 @@ class Tags extends Controller
 
             if (empty($data['tag_name'])) {
                 $data['tag_name_error'] = 'Please enter Tag name';
+                redirect('tags');
             }
 
             if (empty($data['tag_name_error'])) {
@@ -47,7 +48,8 @@ class Tags extends Controller
             }
         } else {
             $data = [
-                'tag_name' => ''
+                'tag_name' => '',
+                'tag_name_error' => ''
             ];
             $this->view('tags/index', $data);
         }

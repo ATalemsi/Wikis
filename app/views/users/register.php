@@ -14,12 +14,12 @@
             <div class="flex items-center justify-between mt-4">
                 <span class="w-1/5 border-b border-gray-600 lg:w-1/4"></span>
 
-                <a href="#" class="text-xs text-center text-gray-500 uppercase text-gray-400 hover:underline">or sign up with email</a>
+                <span class="text-xs text-center text-gray-500 uppercase text-gray-400 hover:underline">entre your inforamtion</span>
 
                 <span class="w-1/5 border-b border-gray-400 lg:w-1/4"></span>
             </div>
 
-            <form action="<?php echo URLROOT; ?>/users/register" method="post" class="mt-4">
+            <form action="<?php echo URLROOT; ?>/users/register" method="post" class="mt-4" onsubmit="return validateRegistrationForm()">
                 <div class="mt-4">
                     <label class="block mb-2 text-sm font-medium text-gray-600 text-gray-200 " for="firstname">First Name</label>
                     <input id="firstname" name="firstname" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300   <?php echo (!empty($data['firstname_err'])) ? 'invalid:border-red-500' : ''; ?>" value="<?php echo $data['firstname']; ?>" type="text" />
@@ -32,7 +32,7 @@
                 </div>
                 <div class="mt-4">
                     <label class="block mb-2 text-sm font-medium text-gray-600 text-gray-200 " for="RegisterEmailAddress">Email Address</label>
-                    <input id="RegisterEmailAddress" name="email" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300   <?php echo (!empty($data['email_err'])) ? 'invalid:border-red-500' : ''; ?>" value="<?php echo $data['Email']; ?>" type="email" />
+                    <input id="RegisterEmailAddress" name="email" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300   <?php echo (!empty($data['email_err'])) ? 'invalid:border-red-500' : ''; ?>" value="<?php echo $data['Email']; ?>" type="text" />
                     <span class="mt-2 text-sm text-red-500 <?php echo (!empty($data['email_err'])) ? 'block' : 'hidden'; ?>"><?php echo $data['email_err']; ?></span>
                 </div>
 
@@ -59,6 +59,39 @@
         </div>
     </div>
 </div>
+<script>
+    function validateRegistrationForm() {
+
+        var firstName = document.getElementById('firstname').value;
+        var lastName = document.getElementById('lastname').value;
+        var email = document.getElementById('RegisterEmailAddress').value;
+
+
+        var nameRegex = /^[A-Za-z]{3,}$/;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (!nameRegex.test(firstName)) {
+            alert('Invalid First Name! It must contain only letters and be at least 3 characters long.');
+            return false;
+        }
+
+
+        if (!nameRegex.test(lastName)) {
+            alert('Invalid Last Name! It must contain only letters and be at least 3 characters long.');
+            return false;
+        }
+
+
+        if (!emailRegex.test(email)) {
+            alert('Invalid email address!');
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 

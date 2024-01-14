@@ -19,10 +19,10 @@
             <span class="w-1/5 border-b border-gray-400 lg:w-1/4"></span>
         </div>
 
-        <form action="<?php echo URLROOT; ?>/users/login" method="post" class="mt-4">
+        <form action="<?php echo URLROOT; ?>/users/login" method="post" class="mt-4" onsubmit="return validateEmail()">
             <div class="mt-4">
                 <label class="block mb-2 text-sm font-medium text-gray-600 text-gray-200 " for="RegisterEmailAddress">Email Address</label>
-                <input id="RegisterEmailAddress" name="email" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300   <?php echo (!empty($data['email_err'])) ? 'invalid:border-red-500' : ''; ?>" value="<?php echo $data['Email']; ?>" type="email" />
+                <input id="RegisterEmailAddress" name="email" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300   <?php echo (!empty($data['email_err'])) ? 'invalid:border-red-500' : ''; ?>" value="<?php echo $data['Email']; ?>" type="text"  />
                 <span class="mt-2 text-sm text-red-500 <?php echo (!empty($data['email_err'])) ? 'block' : 'hidden'; ?>"><?php echo $data['email_err']; ?></span>
             </div>
 
@@ -49,6 +49,25 @@
     </div>
  </div>
 </div>
+<script>
+    function validateEmail() {
+        // Get the email input value
+        var emailInput = document.getElementById('RegisterEmailAddress').value;
+
+        // Define a simple email regex pattern
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Check if the email input matches the regex pattern
+        if (!emailRegex.test(emailInput)) {
+            // Display an error message
+            alert('Invalid email address!');
+            return false; // Prevent form submission
+        }
+
+        // If the email is valid, allow the form submission
+        return true;
+    }
+</script>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 
